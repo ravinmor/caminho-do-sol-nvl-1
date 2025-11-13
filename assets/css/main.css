@@ -551,17 +551,6 @@ h1, h2, h3 {
     margin-bottom: 0.5rem;
 }
 
-.pix-key {
-    font-size: 1.1rem !important;
-    color: var(--text-color) !important;
-    font-weight: 600;
-    background-color: var(--bg-color);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    display: inline-block;
-    margin: 1rem 0 2.5rem 0 !important;
-}
-
 .investment-button {
     margin-bottom: 1.5rem;
 }
@@ -1027,5 +1016,120 @@ h1, h2, h3 {
     
     .hero-text-prev h3 {
         font-size: 1.1rem;
+    }
+}
+
+.qr-code-wrapper {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-code-img {
+    width: 200px;
+    height: 200px;
+    /* O fundo branco e o padding são ESSENCIAIS para o QR Code 
+       funcionar em um site com fundo escuro */
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(229, 124, 35, 0.3); /* Brilho sutil laranja */
+}
+
+.payment-notify {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.instruction-text {
+    font-size: 0.95rem !important; /* Força tamanho menor que o padrão */
+    color: var(--accent-color) !important; /* Destaca a instrução */
+    margin-bottom: 1.5rem !important;
+}
+
+.whatsapp-btn {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E; /* Verde escuro WhatsApp */
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.pix-key {
+    font-size: 1.1rem !important;
+    color: var(--text-color) !important;
+    font-weight: 600;
+    background-color: var(--bg-color);
+    padding: 0.8rem 1.5rem; /* Aumentei um pouco o padding */
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1rem 0 .5rem 0 !important; /* Ajustei a margem */
+    
+    /* Novas propriedades para interatividade */
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    user-select: none; /* Evita que o texto seja selecionado como texto comum */
+}
+
+.pix-key:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+    background-color: #222;
+}
+
+.pix-key:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* --- Estilos do Preço Promocional --- */
+
+.lot-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.old-price {
+    display: block; /* Fica em linha própria acima do preço */
+    font-size: 1.2rem;
+    color: #888; /* Cor cinza para desativar */
+    text-decoration: line-through; /* Risco no meio */
+    margin-bottom: -0.5rem; /* Aproxima do preço novo */
+}
+
+.investment-price {
+    /* Mantendo seus estilos anteriores e ajustando */
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff; /* Destaque em branco */
+    margin-bottom: 1rem;
+}
+
+/* Destaque na cor apenas para o número, se desejar, ou mantenha tudo branco */
+.investment-price {
+    color: var(--text-color);
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    .investment-price {
+        font-size: 3rem;
     }
 }

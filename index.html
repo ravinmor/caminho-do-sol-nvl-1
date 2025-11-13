@@ -217,11 +217,43 @@
 
         <section class="investment-section" id="investimento">
             <h2 class="section-title reveal">Valor do Investimento</h2>
+            
             <div class="investment-box reveal">
-                <span class="investment-price">R$ 99,00</span>
-                <p>Pagamento via PIX para garantir sua vaga.</p>
-                <p class="pix-key">Chave PIX (CNPJ): 35869500000149</p>
-                <a href="#" class="cta-button investment-button">Garantir meu lugar no Banquete</a>
+                
+                <div class="price-header">
+                    <span class="lot-badge">1º Lote</span>
+                    <span class="old-price">de R$ 150,00</span>
+                    <span class="investment-price">por R$ 97,90</span>
+                </div>
+                
+                <p>Escaneie o QR Code para garantir sua vaga:</p>
+                
+                <div class="qr-code-wrapper">
+                    <img src="assets/images/qrcode-pix.jpeg" alt="QR Code PIX" class="qr-code-img">
+                </div>
+
+                <p 
+                    class="pix-key"
+                    id="btnCopyPix"
+                    data-key="00020101021126360014br.gov.bcb.pix0114+5584998385541520400005303986540597.905802BR5925DANIEL LUCAS LEITE DE MAC6009SAO PAULO622905251K9Z94ZG1N38HC381411F1FGE630405FD"
+                    title="Clique para copiar"
+                >
+                    📋 Copiar Chave PIX (Copia e Cola)
+                </p>
+                <p id="copyFeedback" style="opacity: 0; color: #25D366; font-size: 0.9rem; margin-top: .5rem; transition: opacity 0.3s;">Chave copiada!</p>
+                
+                <div class="payment-notify">
+                    <p>Já realizou o pagamento?</p>
+                    <p class="instruction-text">Clique no botão abaixo para enviar o comprovante e confirmar sua inscrição.</p>
+                </div>
+
+                <a href="https://wa.me/5584998385541?text=Ol%C3%A1!%20Acabei%20de%20fazer%20o%20pix%20de%20R$%2097,90%20para%20o%20Banquete%20no%20Topo.%20Segue%20o%20comprovante:" 
+                    target="_blank" 
+                    class="cta-button investment-button whatsapp-btn"
+                >
+                    Enviar Comprovante no WhatsApp
+                </a>
+                
                 <small>O valor do transporte público (ônibus) não está incluso.</small>
             </div>
         </section>

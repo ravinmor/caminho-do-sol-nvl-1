@@ -117,4 +117,39 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // --- Funcionalidade de Copiar PIX ---
+    const btnCopyPix = document.getElementById('btnCopyPix');
+    const feedbackMsg = document.getElementById('copyFeedback');
+
+    if (btnCopyPix) {
+        btnCopyPix.addEventListener('click', () => {
+            // Pega apenas o número limpo do atributo data-key
+            const pixKey = btnCopyPix.getAttribute('data-key');
+
+            // Usa a API da área de transferência
+            navigator.clipboard.writeText(pixKey).then(() => {
+                
+                // Visual de Sucesso
+                const originalText = btnCopyPix.innerHTML;
+                btnCopyPix.innerHTML = "Copiado! ✅";
+                btnCopyPix.style.borderColor = "#25D366";
+                btnCopyPix.style.color = "#25D366";
+                
+                // Mostra a mensagem abaixo (opcional)
+                if(feedbackMsg) feedbackMsg.style.opacity = '1';
+
+                // Volta ao normal depois de 2 segundos
+                setTimeout(() => {
+                    btnCopyPix.innerHTML = originalText;
+                    btnCopyPix.style.borderColor = "transparent";
+                    btnCopyPix.style.color = ""; // Volta a cor do CSS
+                    if(feedbackMsg) feedbackMsg.style.opacity = '0';
+                }, 2000);
+
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                alert("Erro ao copiar automaticamente. Por favor, selecione e copie manualmente.");
+            });
+        });
+    }
 });
