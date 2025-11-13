@@ -22,7 +22,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-main);
-    overflow-x: hidden; /* Previne scroll horizontal */
+    overflow-x: hidden;
 }
 
 a {
@@ -88,26 +88,22 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Usa a cor de fundo do seu site para transição suave */
     background-color: var(--bg-color); 
-    z-index: 9999; /* Garante que fique acima de tudo, até do header */
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 3s ease, visibility 3s ease;
 }
 
-/* Classe para esconder o preloader */
 #preloader.fade-out {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Estilo da imagem no preloader */
 #preloader img {
-    width: 80px; /* Ajuste o tamanho conforme necessário */
+    width: 80px;
     height: auto;
-    /* Animação de pulsação */
     animation: pulse 1.5s infinite ease-in-out;
 }
 
@@ -142,7 +138,7 @@ h1, h2, h3 {
 
 .logo img {
     width: 50px;
-    height: auto;   /* Mantém a proporção da imagem */
+    height: auto;
     display: block;
 }
 
@@ -233,7 +229,7 @@ h1, h2, h3 {
     color: var(--text-color);
 }
 
-/* --- Elementos Fixos da Hero (Inspiração) --- */
+/* --- Elementos Fixos da Hero --- */
 .social-links {
     position: fixed;
     top: 50%;
@@ -279,13 +275,13 @@ h1, h2, h3 {
 /* === INÍCIO DAS SEÇÕES DO CONTEÚDO === */
 /* =========================================== */
 
-/* --- 1. Seção Hero --- */
+/* --- 1. Seção Hero (Desktop Padrão) --- */
 .hero-section {
-background: linear-gradient(
-        rgba(0, 0, 0, 0.5), /* Overlay um pouco mais leve no desktop */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
     ),
-    url("/assets/images/lp-main.png") no-repeat center center fixed; /* Versão desktop */
+    url("/assets/images/lp-main.png") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -310,6 +306,7 @@ background: linear-gradient(
     padding: 10px;
     display: flex;
     align-items: center;
+    text-align: start;
     width: 30%;
     height: 100%;
 }
@@ -336,6 +333,7 @@ background: linear-gradient(
     height: 100%;
 }
 
+/* Clamp garante que o texto diminua suavemente em desktops menores */
 .hero-text-main span {
     font-size: clamp(1.5rem, 2.5vw, 2.5rem);
     font-weight: 600;
@@ -367,15 +365,9 @@ background: linear-gradient(
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
 /* --- 2. Seção Chamada (Hook) --- */
@@ -434,7 +426,7 @@ background: linear-gradient(
 .timeline-item::after {
     content: '';
     position: absolute;
-    top: 5px; /* Alinha com o texto */
+    top: 5px;
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -450,7 +442,7 @@ background: linear-gradient(
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: -11px; /* Posiciona o ponto na linha central */
+    right: -11px;
 }
 
 .timeline-item:nth-child(even) {
@@ -459,7 +451,7 @@ background: linear-gradient(
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -8px; /* Posiciona o ponto na linha central */
+    left: -8px;
 }
 
 .timeline-time {
@@ -535,11 +527,31 @@ background: linear-gradient(
     margin: 0 auto;
 }
 
+.lot-badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.old-price {
+    display: block;
+    font-size: 1.2rem;
+    color: #888;
+    text-decoration: line-through;
+    margin-bottom: -0.5rem;
+}
+
 .investment-price {
     display: block;
     font-size: 4rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -549,8 +561,76 @@ background: linear-gradient(
     margin-bottom: 0.5rem;
 }
 
+.qr-code-wrapper {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-code-img {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(229, 124, 35, 0.3);
+}
+
+.pix-key {
+    font-size: 1.1rem !important;
+    color: var(--text-color) !important;
+    font-weight: 600;
+    background-color: var(--bg-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1rem 0 .5rem 0 !important;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.pix-key:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+    background-color: #222;
+}
+
+.pix-key:active {
+    transform: scale(0.98);
+}
+
+.payment-notify {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.instruction-text {
+    font-size: 0.95rem !important;
+    color: var(--accent-color) !important;
+    margin-bottom: 1.5rem !important;
+}
+
 .investment-button {
     margin-bottom: 1.5rem;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    color: #fff;
+    transform: translateY(-5px);
 }
 
 .investment-box small {
@@ -620,11 +700,11 @@ background: linear-gradient(
 .guide-reverse {
     flex-direction: row-reverse;
 }
-/* Opcional: Alinha o texto à direita no layout invertido para ficar estiloso */
+
 .guide-reverse .guide-bio {
     text-align: left;
 }
-/* Corrige a borda da citação para o lado direito no layout invertido */
+
 .guide-reverse .guide-bio p:last-child {
     border-right: none;
     border-left: 3px solid var(--accent-color);
@@ -633,7 +713,6 @@ background: linear-gradient(
 }
 
 /* --- 7 & 8. Seções Detalhes (Logistics & Details) --- */
-/* CONSOLIDAÇÃO: .details-grid e .logistics-grid são idênticos */
 .details-grid,
 .logistics-grid {
     display: grid;
@@ -641,7 +720,6 @@ background: linear-gradient(
     gap: 2rem;
 }
 
-/* CONSOLIDAÇÃO: .detail-card e .logistics-card compartilham a base */
 .detail-card,
 .logistics-card {
     background-color: var(--card-bg);
@@ -657,7 +735,6 @@ background: linear-gradient(
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos específicos da Seção Logistics */
 .logistics-section {
     padding: 6rem 5%;
     max-width: 1100px;
@@ -701,7 +778,6 @@ background: linear-gradient(
     font-weight: 700;
 }
 
-/* Estilos específicos da Seção Details */
 .details-section {
     padding: 6rem 5%;
     max-width: 1100px;
@@ -832,15 +908,13 @@ background: linear-gradient(
 /* === INÍCIO DAS REGRAS DE RESPONSIVIDADE === */
 /* =========================================== */
 
-/* =========================================== */
-/* === REGRAS DE RESPONSIVIDADE ATUALIZADAS === */
-/* =========================================== */
+/* Ajuste para Laptops e Tablets (Paisagem) */
 @media (max-width: 1080px) {
     .hero-content {
-        width: 95%;
+        width: 80%;
     }
     .hero-text-main h1 {
-        font-size: clamp(3rem, 7vw, 7.5rem); /* Mantendo o clamp, mas ajustei o vw */
+        font-size: clamp(3rem, 7vw, 7.5rem); 
         margin-top: 0;
     }
     .hero-text-main span {
@@ -851,7 +925,6 @@ background: linear-gradient(
     }
 }
 
-
 @media (min-width: 769px) {
     .main-nav {
         display: flex;
@@ -861,10 +934,10 @@ background: linear-gradient(
     }
 }
 
-/* --- Media Query Principal (Tablet e abaixo - 768px) --- */
+/* --- Media Query Principal (Tablet e Mobile - 768px) --- */
 @media (max-width: 768px) {
     
-    /* --- Globais --- */
+    /* Globais: Esconde elementos decorativos */
     .social-links,
     .pagination-dots,
     .scroll-down {
@@ -880,31 +953,38 @@ background: linear-gradient(
         margin-top: -3rem;
     }
 
+    /* --- Hero Section (Correção de Imagem e Layout) --- */
     .hero-section {
-        /* Aqui, usamos a imagem otimizada para mobile */
+        /* Overlay escuro + Imagem original (lp-main.png) */
+        /* center center garante que a imagem foque no meio ao diminuir */
         background: linear-gradient(
-            rgba(0, 0, 0, 0.6), /* Overlay um pouco mais escuro para melhor legibilidade */
+            rgba(0, 0, 0, 0.6), 
             rgba(0, 0, 0, 0.6)
         ),
-        url("/assets/images/lp-main-mobile.png") no-repeat center center; /* IMAGEM MOBILE AQUI */
+        url("/assets/images/lp-main.png") no-repeat center center;
         
         background-size: cover;
-        background-attachment: scroll !important; /* Corrigido para iOS */
+        background-attachment: scroll !important; /* Correção crítica para iOS */
+    }
+
+    .hero-content {
+        /* Layout vertical: texto um em cima do outro */
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        height: 80%; 
+        gap: 2rem; 
     }
 
     .hero-text-prev,
     .hero-text-main {
-        /* Remove posicionamentos antigos */
         left: auto;
         top: auto;
-        /* Ocupa largura total para poder centralizar */
         width: 100%;
-        /* Redefine altura para automático */
         height: auto;
-        /* Centraliza o texto dentro de si */
         justify-content: center;
-        text-align: center;
-        padding: 0 1rem; /* Um pouco de respiro nas laterais */
+        text-align: center; /* Centraliza texto para equilíbrio */
+        padding: 0 1rem;
     }
 
     .hero-text-prev {
@@ -915,9 +995,9 @@ background: linear-gradient(
         text-align: end;
     }
 
-    /* Ajuste específico dos textos para ficarem menores */
+    /* Fontes ajustadas */
     .hero-text-prev h3 {
-        font-size: 1.2rem; /* Menor que desktop */
+        font-size: 1.2rem;
     }
     
     .hero-text-prev span {
@@ -925,7 +1005,7 @@ background: linear-gradient(
     }
 
     .hero-text-main h1 {
-        font-size: 4.5rem; /* Bem menor que os 7rem do desktop */
+        font-size: 4.5rem;
         margin-top: 0;
     }
 
@@ -933,7 +1013,9 @@ background: linear-gradient(
         font-size: 1.5rem;
     }
     
-    /* --- Hook --- */
+    /* --- Outros Ajustes Mobile --- */
+    
+    /* Hook */
     .hook-content h2 {
         font-size: 2rem;
     }
@@ -941,7 +1023,7 @@ background: linear-gradient(
         font-size: 1rem;
     }
 
-    /* --- Timeline --- */
+    /* Timeline */
     .itinerary-timeline::before {
         left: 8px; 
     }
@@ -959,12 +1041,11 @@ background: linear-gradient(
         text-align: left;
     }
 
-    /* Regra única para a bolinha */
     .timeline-item::after {
         left: -1.3px; 
     }
 
-    /* --- Guias --- */
+    /* Guias */
     .guide-content {
         flex-direction: column;
         text-align: center;
@@ -983,7 +1064,7 @@ background: linear-gradient(
         padding-top: 1rem;
     }
 
-    /* Inversão e alinhamento do Ravin no Mobile */
+    /* Inversão no mobile volta ao normal (Imagem em cima) */
     .guide-reverse .guide-bio {
         text-align: center;
     }
@@ -992,18 +1073,23 @@ background: linear-gradient(
         border-right: none; 
     }
 
-    /* --- Grids (Details & Logistics) --- */
+    /* Grids em 1 coluna */
     .details-grid,
     .logistics-grid {
         grid-template-columns: 1fr;
     }
     
-    /* --- CTA --- */
+    /* Investment */
+    .investment-price {
+        font-size: 3rem;
+    }
+
+    /* CTA */
     .cta-content h2 {
         font-size: 1.8rem;
     }
     
-    /* --- FAQ --- */
+    /* FAQ */
     .faq-question {
         font-size: 1.1rem;
     }
@@ -1013,144 +1099,12 @@ background: linear-gradient(
     }
 }
 
+/* --- Media Query Fina (Mobile Pequeno - 480px) --- */
 @media (max-width: 480px) {
-
-    .hero-section {
-        /* Já definimos a imagem mobile em 768px, podemos manter */
-        background-attachment: scroll !important; 
-    }
-
-    /* 2. Ajustes de layout do conteúdo */
-    .hero-content {
-        flex-direction: column; 
-        justify-content: center;
-        align-items: center;
-        height: 80%; /* Mantém o conteúdo centralizado com espaço */
-        gap: 2rem; 
-        /* Removi o background daqui, pois ele quebraria o layout */
-    }
-
-    /* 3. Ajustes de tipografia */
     .hero-text-main h1 {
-        font-size: 3.5rem; 
+        font-size: 3.5rem;
     }
-    
     .hero-text-prev h3 {
         font-size: 1.1rem;
-    }
-}
-
-.qr-code-wrapper {
-    margin: 1.5rem 0;
-    display: flex;
-    justify-content: center;
-}
-
-.qr-code-img {
-    width: 200px;
-    height: 200px;
-    /* O fundo branco e o padding são ESSENCIAIS para o QR Code 
-       funcionar em um site com fundo escuro */
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(229, 124, 35, 0.3); /* Brilho sutil laranja */
-}
-
-.payment-notify {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
-}
-
-.instruction-text {
-    font-size: 0.95rem !important; /* Força tamanho menor que o padrão */
-    color: var(--accent-color) !important; /* Destaca a instrução */
-    margin-bottom: 1.5rem !important;
-}
-
-.whatsapp-btn {
-    background-color: #25D366; /* Verde WhatsApp */
-    color: #fff;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.whatsapp-btn:hover {
-    background-color: #128C7E; /* Verde escuro WhatsApp */
-    color: #fff;
-    transform: translateY(-5px);
-}
-
-.pix-key {
-    font-size: 1.1rem !important;
-    color: var(--text-color) !important;
-    font-weight: 600;
-    background-color: var(--bg-color);
-    padding: 0.8rem 1.5rem; /* Aumentei um pouco o padding */
-    border-radius: 4px;
-    display: inline-block;
-    margin: 1rem 0 .5rem 0 !important; /* Ajustei a margem */
-    
-    /* Novas propriedades para interatividade */
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    user-select: none; /* Evita que o texto seja selecionado como texto comum */
-}
-
-.pix-key:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color) !important;
-    background-color: #222;
-}
-
-.pix-key:active {
-    transform: scale(0.98); /* Efeito de clique */
-}
-
-/* --- Estilos do Preço Promocional --- */
-
-.lot-badge {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-.old-price {
-    display: block; /* Fica em linha própria acima do preço */
-    font-size: 1.2rem;
-    color: #888; /* Cor cinza para desativar */
-    text-decoration: line-through; /* Risco no meio */
-    margin-bottom: -0.5rem; /* Aproxima do preço novo */
-}
-
-.investment-price {
-    /* Mantendo seus estilos anteriores e ajustando */
-    display: block;
-    font-size: 4rem;
-    font-weight: 700;
-    color: #fff; /* Destaque em branco */
-    margin-bottom: 1rem;
-}
-
-/* Destaque na cor apenas para o número, se desejar, ou mantenha tudo branco */
-.investment-price {
-    color: var(--text-color);
-}
-
-/* Ajuste para telas menores */
-@media (max-width: 768px) {
-    .investment-price {
-        font-size: 3rem;
     }
 }
