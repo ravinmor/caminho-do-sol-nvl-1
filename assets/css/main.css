@@ -393,6 +393,69 @@ h1, h2, h3 {
     color: #B0B0B0;
 }
 
+/* --- 2.5 Seção Data do Evento & Contagem Regressiva --- */
+.event-date-section {
+    /* Fundo escuro para destacar */
+    background-color: #000; 
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.event-date {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-color);
+    margin-top: -3rem;
+    margin-bottom: 2.5rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.timer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    border-top: 3px solid var(--accent-color);
+}
+
+.timer-block span {
+    display: block;
+}
+
+/* Estilo para os números (Dias, Horas, etc.) */
+#countdown-days,
+#countdown-hours,
+#countdown-minutes,
+#countdown-seconds {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.1;
+}
+
+/* Estilo para os rótulos (Dias, Horas, etc.) */
+.timer-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #B0B0B0;
+    letter-spacing: 0.1em;
+}
+
+.event-date-section p {
+    color: #B0B0B0;
+    font-style: italic;
+}
+
 /* --- 3. Seção Roteiro (Itinerary) --- */
 .itinerary-section {
     padding: 6rem 5%;
@@ -1045,6 +1108,8 @@ h1, h2, h3 {
         left: -1.3px; 
     }
 
+    
+
     /* Guias */
     .guide-content {
         flex-direction: column;
@@ -1106,5 +1171,18 @@ h1, h2, h3 {
     }
     .hero-text-prev h3 {
         font-size: 1.1rem;
+    }
+    .countdown-timer {
+        gap: 0.5rem; /* Diminui o espaço */
+    }
+    .timer-block {
+        width: 75px; /* Blocos menores */
+        height: 75px;
+    }
+    #countdown-days,
+    #countdown-hours,
+    #countdown-minutes,
+    #countdown-seconds {
+        font-size: 2rem;
     }
 }

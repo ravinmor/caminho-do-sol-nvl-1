@@ -152,4 +152,46 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    const targetDate = new Date("2025-12-06T12:00:00").getTime();
+
+    // Seleciona os elementos no HTML
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minutesEl = document.getElementById('countdown-minutes');
+    const secondsEl = document.getElementById('countdown-seconds');
+
+    // Função para adicionar um zero à esquerda se o número for menor que 10
+    const pad = (num) => (num < 10 ? '0' + num : num);
+
+    // Atualiza o contador a cada segundo
+    const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        // Se o tempo acabar
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            daysEl.innerHTML = "00";
+            hoursEl.innerHTML = "00";
+            minutesEl.innerHTML = "00";
+            secondsEl.innerHTML = "00";
+            // Você pode alterar a mensagem principal aqui se quiser
+            // document.querySelector('.event-date-section p').innerHTML = "A ascensão começou!";
+            return;
+        }
+
+        // Cálculos de tempo
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Atualiza o HTML
+        if (daysEl) daysEl.innerHTML = pad(days);
+        if (hoursEl) hoursEl.innerHTML = pad(hours);
+        if (minutesEl) minutesEl.innerHTML = pad(minutes);
+        if (secondsEl) secondsEl.innerHTML = pad(seconds);
+
+    }, 1000); // Roda a cada 1 segundo
 });
