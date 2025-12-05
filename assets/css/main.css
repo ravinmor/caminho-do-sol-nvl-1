@@ -1186,3 +1186,59 @@ h1, h2, h3 {
         font-size: 2rem;
     }
 }
+
+/* --- Rodapé (Footer) --- */
+.main-footer {
+    padding: 4rem 5% 2rem; /* Aumentei o padding superior */
+    background-color: #050505; /* Um pouco mais escuro que o fundo */
+    color: #888;
+    border-top: 1px solid var(--card-bg);
+    font-size: 0.9rem;
+}
+
+.footer-policy {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-align: left; /* Texto legal fica melhor alinhado à esquerda ou justificado */
+}
+
+.footer-policy h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-policy p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.85rem; /* Texto um pouco menor para não brigar com o conteúdo */
+}
+
+.footer-policy ul {
+    list-style-type: none;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+.footer-policy li {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.footer-policy li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 2rem;
+    font-size: 0.9rem;
+}
